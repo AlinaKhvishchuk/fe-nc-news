@@ -1,53 +1,40 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { format } from "date-fns";
-import { fetchCommentsByArticleId, fetchSingleArticle } from "../../utils";
-import ArticleContent from "./ArticleContent";
-import CommentList from "./CommentList";
-import Error from "./Error";
+import { fetchSingleArticle } from "../../utils";
 import "../css/ArticlePage.css";
 
 const ArticlePage = () => {
   const { article_id } = useParams();
   const [currArticle, setCurrArticle] = useState({});
-  const [comments, setComments] = useState([]);
-
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetchSingleArticle(article_id)
       .then((article) => {
         setCurrArticle(article);
-        setError(null);
       })
       .catch((err) => {
-        setError(err);
-      })
-      .finally(() => {
-        setIsLoading(false);
+        console.log(err);
       });
   }, []);
 
-  useEffect(() => {
-    fetchCommentsByArticleId(article_id).then((comments) => {
-      setComments(comments);
-    });
-  }, []);
-
-  if (isLoading) {
-    return <p>Loading .... </p>;
-  }
-
-  if (error) return <Error message={error.message}></Error>;
-
   if (Object.keys(currArticle).length === 0) return null;
 
+  const { title, author, topic, created_at, votes, article_img_url, body } =
+    currArticle;
+  const formattedDate = format(new Date(created_at), "MMMM dd, yyyy");
   return (
-    <>
-      <ArticleContent article={currArticle} />
-      <CommentList comments={comments} />
-    </>
+    <article>
+      <p className="article-topic">{topic}</p>
+      <h2>{title}</h2>
+      <div className="article-details">
+        <p>{formattedDate}</p>
+        <p>By {author}</p>
+        <p>Votes {votes}</p>
+      </div>
+      <img className="article-img" src={article_img_url} alt="" />
+      <p className="article-body">{body}</p>
+    </article>
   );
 };
 export default ArticlePage;
