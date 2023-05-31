@@ -6,14 +6,23 @@ import ArticleList from "./ArticleList";
 
 function AllArticles() {
   const [articles, setArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetchArticles().then((articles) => {
-      setArticles(articles);
-    });
+    fetchArticles()
+      .then((articles) => {
+        setArticles(articles);
+      })
+      .then(() => {
+        setIsLoading(false);
+      });
   }, []);
 
   if (!articles) return null;
+
+  if (isLoading) {
+    return <p>Loading .... </p>;
+  }
 
   return (
     <section id="all-articles">
