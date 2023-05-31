@@ -13,12 +13,12 @@ function AllArticles() {
       .then((articles) => {
         setArticles(articles);
       })
-      .then(() => {
+      .finally(() => {
         setIsLoading(false);
       });
   }, []);
 
-  if (!articles) return null;
+  if (!articles.length) return null;
 
   if (isLoading) {
     return <p>Loading .... </p>;
