@@ -8,7 +8,7 @@ const ArticlePage = () => {
   const { article_id } = useParams();
   const [currArticle, setCurrArticle] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(false);
+  // const [error, setError] = useState(false);
 
   useEffect(() => {
     fetchSingleArticle(article_id)
@@ -17,7 +17,7 @@ const ArticlePage = () => {
       })
       .catch((err) => {
         console.log(err);
-        setError(true);
+        // setError(true);
       })
       .finally(() => {
         setIsLoading(false);
