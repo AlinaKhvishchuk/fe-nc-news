@@ -7,6 +7,8 @@ import "../css/ArticlePage.css";
 const ArticlePage = () => {
   const { article_id } = useParams();
   const [currArticle, setCurrArticle] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     fetchSingleArticle(article_id)
@@ -15,8 +17,16 @@ const ArticlePage = () => {
       })
       .catch((err) => {
         console.log(err);
+        setError(true);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }, []);
+
+  if (isLoading) {
+    return <p>Loading .... </p>;
+  }
 
   if (Object.keys(currArticle).length === 0) return null;
 
