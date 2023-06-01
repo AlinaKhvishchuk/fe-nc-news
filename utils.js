@@ -13,6 +13,12 @@ export const fetchArticles = () => {
   });
 };
 
+export const fetchSingleArticle = (article_id) => {
+  return API.get(`/articles/${article_id}`).then(({ data }) => {
+    return data.article;
+  });
+};
+
 // const Article = ({ title, description }) => <h2>{title}</h2>;
 
 // const ArticleList = ({ items }) => {

@@ -1,0 +1,28 @@
+article {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+.article-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.article-details > p {
+  font-size: 14px;
+  color: rgb(46, 45, 45);
+}
+.article-img {
+  width: 100%;
+  margin: 20px 0;
+}
+.article-body {
+  text-align: justify;
+}
+
+.article-topic {
+  margin: 0 auto;
+  padding: 5px 15px;
+  background-color: #b80000;
+  color: white;
+}
