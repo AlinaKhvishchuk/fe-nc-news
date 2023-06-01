@@ -1,17 +1,29 @@
-.comment-item {
-  border-bottom: 2px solid rgb(46, 45, 45);
-}
-
 .comment-details {
   display: flex;
   justify-content: space-between;
 }
 
-.comment-details > p {
-  font-size: 12px;
+.comment-author {
+  font-size: 16px;
+  text-decoration: underline;
+  font-weight: 700;
   color: rgb(46, 45, 45);
+}
+
+.comment-date {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgb(65, 64, 64);
 }
 .comment-body {
   text-align: justify;
   font-size: 14px;
+}
+
+.comment-votes {
+  background-color: rgb(46, 45, 45);
+  width: fit-content;
+  color: white;
+  padding: 5px;
+  margin: 5px 0 0 0;
 }

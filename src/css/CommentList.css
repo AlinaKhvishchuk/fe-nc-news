@@ -1,3 +1,12 @@
+.comments {
+  width: 100%;
+  border-top: solid 0.5px rgb(65, 64, 64);
+}
+
 .comment-list {
   display: flex;
+  row-gap: 25px;
+  flex-direction: column;
+  width: 100%;
+  padding: 15px;
 }

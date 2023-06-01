@@ -7,7 +7,7 @@ function App() {
   return (
     <BrowserRouter>
       <Nav />
-      <main>
+      <main id="main">
         <Routes>
           <Route path="/articles" element={<AllArticles />}></Route>
           <Route path="/articles/:article_id" element={<ArticlePage />} />
