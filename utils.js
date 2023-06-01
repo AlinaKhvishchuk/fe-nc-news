@@ -18,25 +18,3 @@ export const fetchSingleArticle = (article_id) => {
     return data.article;
   });
 };
-
-// const Article = ({ title, description }) => <h2>{title}</h2>;
-
-// const ArticleList = ({ items }) => {
-//   items.map((item) => <Article title={article.title}></Article>);
-// };
-
-// useEffect(() => {
-//   fetchArticles().then((articles) => {
-//     setArticles(articles);
-//   });
-// }, []);
-
-// const Page = () => {
-//   return (
-//     <>
-//       <ArticleList items={articles}></ArticleList>
-//       <ArticleList items={articles.filter(date)}></ArticleList>
-//       <ArticleList items={article.filter(raiting)}></ArticleList>
-//     </>
-//   );
-// };
