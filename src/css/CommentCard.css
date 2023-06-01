@@ -1,0 +1,17 @@
+.comment-item {
+  border-bottom: 2px solid rgb(46, 45, 45);
+}
+
+.comment-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment-details > p {
+  font-size: 12px;
+  color: rgb(46, 45, 45);
+}
+.comment-body {
+  text-align: justify;
+  font-size: 14px;
+}

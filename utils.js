@@ -13,24 +13,8 @@ export const fetchArticles = () => {
   });
 };
 
-// const Article = ({ title, description }) => <h2>{title}</h2>;
-
-// const ArticleList = ({ items }) => {
-//   items.map((item) => <Article title={article.title}></Article>);
-// };
-
-// useEffect(() => {
-//   fetchArticles().then((articles) => {
-//     setArticles(articles);
-//   });
-// }, []);
-
-// const Page = () => {
-//   return (
-//     <>
-//       <ArticleList items={articles}></ArticleList>
-//       <ArticleList items={articles.filter(date)}></ArticleList>
-//       <ArticleList items={article.filter(raiting)}></ArticleList>
-//     </>
-//   );
-// };
+export const fetchCommentsByArticleId = (article_id) => {
+  return API.get(`/articles/${article_id}/comments`).then(({ data }) => {
+    return data.comments;
+  });
+};
