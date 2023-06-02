@@ -15,9 +15,6 @@ const ArticleContent = ({ article }) => {
       </div>
       <img className="article-img" src={article_img_url} alt="" />
       <p className="article-body">{body}</p>
-      <div className="votes">
-        <p>Votes {votes}</p>
-      </div>
     </article>
   );
 };
