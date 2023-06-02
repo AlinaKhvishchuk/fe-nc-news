@@ -1,0 +1,16 @@
+.comment-form {
+  display: flex;
+  border: none;
+  border-top: solid 0.5px rgb(65, 64, 64);
+}
+
+fieldset {
+  border: none;
+  display: flex;
+}
+
+input {
+  width: fit-content;
+  height: fit-content;
+  overflow: visible;
+}
