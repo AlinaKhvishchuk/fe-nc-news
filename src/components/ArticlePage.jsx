@@ -33,7 +33,7 @@ const ArticlePage = () => {
     fetchCommentsByArticleId(article_id).then((comments) => {
       setComments(comments);
     });
-  });
+  }, []);
 
   if (isLoading) {
     return <p>Loading .... </p>;
@@ -42,7 +42,6 @@ const ArticlePage = () => {
   if (error) return <Error message={error.message}></Error>;
 
   if (Object.keys(currArticle).length === 0) return null;
-  console.log(error, "<<<<<");
 
   return (
     <>
