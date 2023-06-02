@@ -7,6 +7,7 @@ import CommentList from "./CommentList";
 import Error from "./Error";
 import "../css/ArticlePage.css";
 import ArticleVotes from "./ArticleVotes";
+import PostComment from "./PostComment";
 
 const ArticlePage = () => {
   const { article_id } = useParams();
@@ -48,6 +49,7 @@ const ArticlePage = () => {
     <section className="article-page">
       <ArticleContent article={currArticle} />
       <ArticleVotes article={currArticle} />
+      <PostComment article_id={article_id} setComments={setComments} />
       <CommentList comments={comments} />
     </section>
   );

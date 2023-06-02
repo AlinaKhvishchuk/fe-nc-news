@@ -30,3 +30,11 @@ export const patchArticleVotes = (article_id) => {
     return data.article;
   });
 };
+
+export const postComment = (article_id, newComment) => {
+  return API.post(`/articles/${article_id}/comments`, newComment).then(
+    ({ data }) => {
+      return data.comment;
+    }
+  );
+};
