@@ -25,10 +25,12 @@ export const fetchCommentsByArticleId = (article_id) => {
   });
 };
 
-export const patchArticleVotes = (article_id) => {
-  return API.patch(`/articles/${article_id}`, { inc_votes: 1 }).then((data) => {
-    return data.article;
-  });
+export const patchArticleVotes = (article_id, value) => {
+  return API.patch(`/articles/${article_id}`, { inc_votes: value }).then(
+    (data) => {
+      return data.article;
+    }
+  );
 };
 
 export const postComment = (article_id, newComment) => {
