@@ -7,6 +7,7 @@ const PostComment = ({ article_id, setComments }) => {
     evt.preventDefault();
     postComment(article_id, newComment).then((newComment) => {
       setComments((currComments) => [newComment, ...currComments]);
+      setNewComment({ username: "", body: "" });
     });
   };
 
