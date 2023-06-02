@@ -4,6 +4,7 @@ import { format } from "date-fns";
 import { fetchCommentsByArticleId, fetchSingleArticle } from "../../utils";
 import ArticleContent from "./ArticleContent";
 import CommentList from "./CommentList";
+import Error from "./Error";
 import "../css/ArticlePage.css";
 
 const ArticlePage = () => {
@@ -12,17 +13,16 @@ const ArticlePage = () => {
   const [comments, setComments] = useState([]);
 
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetchSingleArticle(article_id)
       .then((article) => {
         setCurrArticle(article);
-        setError(false);
+        setError(null);
       })
       .catch((err) => {
-        console.log(err);
-        setError(true);
+        setError(err);
       })
       .finally(() => {
         setIsLoading(false);
@@ -33,12 +33,12 @@ const ArticlePage = () => {
     fetchCommentsByArticleId(article_id).then((comments) => {
       setComments(comments);
     });
-  });
+  }, []);
 
   if (isLoading) {
     return <p>Loading .... </p>;
   }
-
+  if (error) return <Error message={error.message}></Error>;
   if (Object.keys(currArticle).length === 0) return null;
 
   return (
