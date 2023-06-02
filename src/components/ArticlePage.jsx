@@ -6,6 +6,7 @@ import ArticleContent from "./ArticleContent";
 import CommentList from "./CommentList";
 import Error from "./Error";
 import "../css/ArticlePage.css";
+import ArticleVotes from "./ArticleVotes";
 
 const ArticlePage = () => {
   const { article_id } = useParams();
@@ -44,10 +45,11 @@ const ArticlePage = () => {
   if (Object.keys(currArticle).length === 0) return null;
 
   return (
-    <>
+    <section className="article-page">
       <ArticleContent article={currArticle} />
+      <ArticleVotes article={currArticle} />
       <CommentList comments={comments} />
-    </>
+    </section>
   );
 };
 export default ArticlePage;

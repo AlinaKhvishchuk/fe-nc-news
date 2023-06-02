@@ -12,7 +12,6 @@ const ArticleContent = ({ article }) => {
       <div className="article-details">
         <p>{formattedDate}</p>
         <p>By {author}</p>
-        <p>Votes {votes}</p>
       </div>
       <img className="article-img" src={article_img_url} alt="" />
       <p className="article-body">{body}</p>
