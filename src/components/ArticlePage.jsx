@@ -39,6 +39,7 @@ const ArticlePage = () => {
     return <p>Loading .... </p>;
   }
   if (error) return <Error message={error.message}></Error>;
+
   if (Object.keys(currArticle).length === 0) return null;
 
   return (
