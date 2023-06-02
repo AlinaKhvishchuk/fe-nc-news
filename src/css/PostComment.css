@@ -1,12 +1,20 @@
-.comment-form {
+#comment-form {
   display: flex;
+  flex-direction: column;
+  column-gap: 5px;
   border: none;
   border-top: solid 0.5px rgb(65, 64, 64);
 }
 
+#comment-form > p {
+  display: block;
+  color: red;
+  margin: 0 auto;
+}
 fieldset {
   border: none;
   display: flex;
+  column-gap: 5px;
 }
 
 input {

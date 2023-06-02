@@ -4,12 +4,19 @@ import "../css/PostComment.css";
 
 const PostComment = ({ article_id, setComments }) => {
   const [newComment, setNewComment] = useState({ username: "", body: "" });
+  const [err, setErr] = useState(null);
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    postComment(article_id, newComment).then((newComment) => {
-      setComments((currComments) => [newComment, ...currComments]);
-      setNewComment({ username: "", body: "" });
-    });
+    postComment(article_id, newComment)
+      .then((newComment) => {
+        setComments((currComments) => [newComment, ...currComments]);
+        setNewComment({ username: "", body: "" });
+        setErr(null);
+      })
+      .catch((err) => {
+        console.log("NO INET");
+        setErr(true);
+      });
   };
 
   return (
@@ -42,6 +49,7 @@ const PostComment = ({ article_id, setComments }) => {
         </div>
         <button type="submit">Post</button>
       </fieldset>
+      {err && <p>An error occurred. Please try again.</p>}
     </form>
   );
 };
