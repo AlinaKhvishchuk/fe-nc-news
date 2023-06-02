@@ -19,7 +19,7 @@ const ArticleVotes = ({ article }) => {
   const isDisabled = votesChange === 1 || votesChange === -1;
 
   return (
-    <div className="votes">
+    <section className="votes">
       <div className="button-vote">
         <button onClick={incVotes} disabled={isDisabled}>
           Like
@@ -29,7 +29,7 @@ const ArticleVotes = ({ article }) => {
         </button>
       </div>
       <span>Total votes: {votes + votesChange}</span>
-    </div>
+    </section>
   );
 };
 
