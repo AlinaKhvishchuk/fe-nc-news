@@ -16,12 +16,17 @@ const ArticleVotes = ({ article }) => {
       setVotesChange((currVotes) => currVotes + 1);
     });
   };
+  const isDisabled = votesChange === 1 || votesChange === -1;
 
   return (
     <div className="votes">
       <div className="button-vote">
-        <button onClick={incVotes}>Like</button>
-        <button onClick={decVotes}>Dislike</button>
+        <button onClick={incVotes} disabled={isDisabled}>
+          Like
+        </button>
+        <button onClick={decVotes} disabled={isDisabled}>
+          Dislike
+        </button>
       </div>
       <span>Total votes: {votes + votesChange}</span>
     </div>
