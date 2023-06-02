@@ -1,6 +1,5 @@
 import ArticleCard from "./ArticleCard";
 import { fetchArticles } from "../../utils";
-import { useEffect, useState, useContext } from "react";
 import "../css/ArticleList.css";
 
 export default function ArticleList({ articles }) {
