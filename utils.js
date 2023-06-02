@@ -24,3 +24,9 @@ export const fetchCommentsByArticleId = (article_id) => {
     return data.comments;
   });
 };
+
+export const patchArticleVotes = (article_id) => {
+  return API.patch(`/articles/${article_id}`, { inc_votes: 1 }).then((data) => {
+    return data.article;
+  });
+};
