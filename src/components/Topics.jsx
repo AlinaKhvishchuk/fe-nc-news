@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import { fetchTopics } from "../../utils";
+import { Link } from "react-router-dom";
 import ArticleList from "./ArticleList";
 
 const Topics = () => {
-  const [currTopics, setCurrTopics] = useState();
+  const [currTopics, setCurrTopics] = useState([]);
   useEffect(() => {
     fetchTopics().then((topics) => setCurrTopics(topics));
   }, []);
 
-  if (!currTopics) return null;
+  if (!currTopics.length) return null;
 
   if (currTopics) {
     return (
@@ -16,7 +17,9 @@ const Topics = () => {
         {currTopics.map(({ slug, description }) => {
           return (
             <li key={slug}>
-              <Link to></Link>
+              <Link to={`articles?topic=${slug}`}></Link>
+              <div className="topic-name">{slug}</div>
+              <p>{description}</p>
             </li>
           );
         })}
@@ -25,22 +28,3 @@ const Topics = () => {
   }
 };
 export default Topics;
-
-//   // if (!categories) return null;
-
-//   if (categories) {
-//     return (
-//       <ul id="category-list">
-//         {categories.map(({ category_name }) => {
-//           return (
-//             <li key={category_name}>
-//               <Link to={`/items?category=${category_name}`}>
-//                 <div className="category-name">{category_name}</div>
-//               </Link>
-//             </li>
-//           );
-//         })}
-//       </ul>
-//     );
-//   }
-// }
