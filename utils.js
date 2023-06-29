@@ -40,3 +40,9 @@ export const postComment = (article_id, newComment) => {
     }
   );
 };
+
+export const fetchTopics = () => {
+  return API.get(`/topics`).then(({ data }) => {
+    return data.topics;
+  });
+};
